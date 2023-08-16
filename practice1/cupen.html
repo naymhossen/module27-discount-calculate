@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prsctice 1 </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+
+    <header>
+        <section class="bg-pink-800 text-gray-800 text-center">
+            <div class="items-center mt-20 bg-gray-300">
+                <h1 class="text-5xl font-bold mt-4">Product Price: $<span id="product-price">5000</span></h1>
+                    <button id="discounts-btn" class="text-2xl mt-4 font-bold px-2 rounded-lg mb-4 py-3 bg-yellow-300 hover:bg-yellow-400">30% Discount</button>
+                    <h1 class="mb-5 text-3xl font-semibold">Pay First: $<span id="pay-first">00</span></h1>
+            </div>
+        </section>
+    </header>
+   <script>
+        const productPrice = 5000;
+        const discountParcentage = 30;
+
+    function setTextElementValueById(elementId, newvalue){
+        const textElement = document.getElementById(elementId);
+        textElement.innerText = newvalue;
+}
+
+    document.getElementById('discounts-btn').addEventListener('click', function(){
+        const fixedProductPrice = document.getElementById('product-price');
+        const payFirstPrice = document.getElementById('pay-first');
+
+        const discountAmount = productPrice - ( productPrice * discountParcentage ) / 100;
+        setTextElementValueById('pay-first', discountAmount);
+
+        })
+   </script>
+</body>
+</html>
